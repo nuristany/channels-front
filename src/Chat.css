@@ -1,0 +1,84 @@
+/* Chat.css */
+
+/* Main container to center everything */
+.chat-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Chat header */
+  .chat-header {
+    text-align: center;
+    font-size: 2rem;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+  }
+  
+  /* Container to hold the messages */
+  .message-container {
+    height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for each message */
+  .message {
+    background-color: #e0e0e0;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    max-width: 80%;
+  }
+  
+  .message-text {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  /* Status bar */
+  .status-container {
+    text-align: center;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  /* Input field container */
+  .input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Styling for the input field */
+  .message-input {
+    width: 80%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Styling for the send button */
+  .send-button {
+    width: 15%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .send-button:hover {
+    background-color: #45a049;
+  }
+  
