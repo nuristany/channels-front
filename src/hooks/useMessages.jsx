@@ -43,7 +43,7 @@ export const useMessages = (conversationId) => {
       );
       return data;
     },
-    enabled: !!conversationId &&& !!authToken,
+    enabled: !!conversationId && !!authToken,
   });
 };
 
