@@ -25,18 +25,25 @@
 
 
 import { useQuery } from '@tanstack/react-query';
+import useAuth from "../context/useAuth"
 import axios from 'axios';
 
 export const useMessages = (conversationId) => {
+  const {authToken} = useAuth();
   return useQuery({
     queryKey: ['messages', conversationId],
     queryFn: async () => {
       const { data } = await axios.get(
-        `https://channels-backend-production.up.railway.app/api/messages/conversation/${conversationId}/`
+        `https://channels-backend-production.up.railway.app/api/messages/conversation/${conversationId}/`,
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
       );
       return data;
     },
-    enabled: !!conversationId,
+    enabled: !!conversationId &&& !!authToken,
   });
 };
 
