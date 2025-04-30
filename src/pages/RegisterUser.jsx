@@ -11,9 +11,8 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import API_URL from "../api/api";
 
-const base_URL =
-  "https://channels-backend-production.up.railway.app/auth/users/";
 const RegisterUser = () => {
   const navigate = useNavigate();
 
@@ -24,7 +23,7 @@ const RegisterUser = () => {
     },
     onSubmit: async (values, { setSubmitting, setErrors }) => {
       try {
-        await axios.post(`${base_URL}`, {
+        await axios.post(`${API_URL}/auth/users/`, {
           email: values.email,
           password: values.password,
         });
