@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import { useFormik } from "formik";
-import { Password } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 const RegisterUser = () => {
  const navigate = useNavigate();
@@ -51,8 +50,9 @@ const RegisterUser = () => {
         >
           <PersonAddIcon />
         </Avatar>
-        <Box component="form" sx={{ mt: 3 }}>
+        <Box component="form" onSubmit={formik.handleSubmit} sx={{ mt: 3 }}>
           <TextField
+          name="email"
             placeholder="Email"
             fullWidth
             autoFocus
@@ -61,6 +61,7 @@ const RegisterUser = () => {
             onChange={formik.handleChange}
           />
           <TextField
+          name="password"
             type="password"
             placeholder="Password"
             fullWidth
