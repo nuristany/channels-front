@@ -33,8 +33,8 @@ export const useMessages = (conversationId) => {
   return useQuery({
     queryKey: ['messages', conversationId, API_URL],
     queryFn: async () => {
-      const { data } = await axios.get(
-        `${API_URL}api/messages/conversation/${conversationId}/`,
+      const { data } = await API_URL.get(
+        `api/messages/conversation/${conversationId}/`,
         {
           headers: {
             Authorization: `Bearer ${authToken}`,
