@@ -28,7 +28,7 @@ import API_URL from "../api/api";
 // Moved token to be passed in as argument
 const fetchCategories = async (token) => {
   try {
-    const response = await API_URL.get("/channel-categories/", {
+    const response = await API_URL.get("api/channel-categories/", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

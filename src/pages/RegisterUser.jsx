@@ -12,23 +12,22 @@ import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const base_URL =
+  "https://channels-backend-production.up.railway.app/auth/users/";
 const RegisterUser = () => {
- const navigate = useNavigate();
+  const navigate = useNavigate();
 
- const formik = useFormik({
+  const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
     onSubmit: async (values, { setSubmitting, setErrors }) => {
       try {
-        await axios.post(
-          "https://channels-backend-production.up.railway.app/auth/users/",
-          {
-            email: values.email,
-            password: values.password,
-          }
-        );
+        await axios.post(`${base_URL}`, {
+          email: values.email,
+          password: values.password,
+        });
         navigate("/login");
       } catch (error) {
         setErrors({ email: "Registration failed" });
@@ -37,7 +36,7 @@ const RegisterUser = () => {
       }
     },
   });
-  
+
   return (
     <Container maxWidth="xs">
       <Paper elevation={5} sx={{ marginTop: 8, padding: 2 }}>
@@ -53,16 +52,18 @@ const RegisterUser = () => {
         </Avatar>
         <Box component="form" onSubmit={formik.handleSubmit} sx={{ mt: 3 }}>
           <TextField
-          name="email"
+            name="email"
             placeholder="Email"
             fullWidth
             autoFocus
             sx={{ mb: 1 }}
             value={formik.values.email}
             onChange={formik.handleChange}
+            error={Boolean(formik.errors.email)}
+            helperText={formik.errors.email}
           />
           <TextField
-          name="password"
+            name="password"
             type="password"
             placeholder="Password"
             fullWidth

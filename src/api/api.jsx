@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_URL = axios.create({
-    baseURL:"https://channels-backend-production.up.railway.app/api",
+    baseURL:"https://channels-backend-production.up.railway.app/",
     
 })
 

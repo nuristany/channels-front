@@ -7,7 +7,7 @@ const fetchChannels = async ({ queryKey }) => {
   const [_key, categoryId, authToken] = queryKey; // Destructure token from queryKey
 
   try {
-    const response = await API_URL.get("/channels/", {
+    const response = await API_URL.get("api/channels/", {
       params: categoryId ? { category_id: categoryId } : {},
       headers: {
         Authorization: `Bearer ${authToken}`,
