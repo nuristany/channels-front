@@ -10,10 +10,12 @@ import {
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 const RegisterUser = () => {
  const navigate = useNavigate();
 
-  const formik = useFormik({
+ const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
@@ -26,17 +28,16 @@ const RegisterUser = () => {
             email: values.email,
             password: values.password,
           }
-        ),
-          navigate("/login");
+        );
+        navigate("/login");
       } catch (error) {
-        setErrors({
-          email: "Registration failed",
-        });
+        setErrors({ email: "Registration failed" });
       } finally {
         setSubmitting(false);
       }
     },
   });
+  
   return (
     <Container maxWidth="xs">
       <Paper elevation={5} sx={{ marginTop: 8, padding: 2 }}>
