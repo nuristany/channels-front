@@ -79,16 +79,16 @@ const Login = () => {
             label="Remember me"
             sx={{ display: "flex", alignItems: "center", mb: 2 }}
           />
-        </Box>
         <Button
           type="submit"
           variant="contained"
           fullWidth
           sx={{ mt: 1 }}
           disabled={formik.isSubmitting}
-        >
+          >
           Sign In
         </Button>
+          </Box>
       </Paper>
     </Container>
   );
