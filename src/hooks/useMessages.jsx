@@ -27,12 +27,11 @@
 import { useQuery } from '@tanstack/react-query';
 import useAuth from "../context/useAuth"
 import axios from 'axios';
-import API_URL from '../api/api';
-
+import API_URL from "../api/api"
 export const useMessages = (conversationId) => {
   const {authToken} = useAuth();
   return useQuery({
-    queryKey: ['messages', conversationId],
+    queryKey: ['messages', conversationId, API_URL],
     queryFn: async () => {
       const { data } = await axios.get(
         `${API_URL}api/messages/conversation/${conversationId}/`,
