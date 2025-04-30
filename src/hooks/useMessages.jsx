@@ -27,7 +27,7 @@
 import { useQuery } from '@tanstack/react-query';
 import useAuth from "../context/useAuth"
 import axios from 'axios';
-
+import API_URL from '../api/api';
 
 export const useMessages = (conversationId) => {
   const {authToken} = useAuth();
@@ -35,7 +35,7 @@ export const useMessages = (conversationId) => {
     queryKey: ['messages', conversationId],
     queryFn: async () => {
       const { data } = await axios.get(
-        `https://channels-backend-production.up.railway.app/api/messages/conversation/${conversationId}/`,
+        `${API_URL}/api/messages/conversation/${conversationId}/`,
         {
           headers: {
             Authorization: `Bearer ${authToken}`,
