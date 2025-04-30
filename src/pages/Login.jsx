@@ -9,10 +9,13 @@ import {
   Box,
   TextField,
   FormControlLabel,
-  Button
+  Button,
+  Grid,
+  Link,
 } from "@mui/material";
 import LockOutLinedIcon from "@mui/icons-material/LockOutlined";
 import { Checkbox } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 
 const Login = () => {
   const { loginUser } = useAuth();
@@ -79,41 +82,39 @@ const Login = () => {
             label="Remember me"
             sx={{ display: "flex", alignItems: "center", mb: 2 }}
           />
-        <Button
-          type="submit"
-          variant="contained"
-          fullWidth
-          sx={{ mt: 1 }}
-          disabled={formik.isSubmitting}
+          <Button
+            type="submit"
+            variant="contained"
+            fullWidth
+            sx={{ mt: 1 }}
+            disabled={formik.isSubmitting}
           >
-          Sign In
-        </Button>
-          </Box>
+            Sign In
+          </Button>
+        </Box>
+        <Grid container justifyContent="space-between" sx={{ mt: 1 }}>
+          <Grid item>
+            <Link
+              component={RouterLink}
+              to="/forgot"
+              sx={{ listStyle: "none", textDecoration: "none" }}
+            >
+              Forgot Password
+            </Link>
+          </Grid>
+          <Grid item>
+            <Link
+              component={RouterLink}
+              to="/register"
+              sx={{ listStyle: "none", textDecoration: "none" }}
+            >
+              Sign Up
+            </Link>
+          </Grid>
+        </Grid>
       </Paper>
     </Container>
   );
 };
 
 export default Login;
-
-// <form onSubmit={formik.handleSubmit}>
-//   <h2>Login</h2>
-//   <input
-//     type="email"
-//     name="email"
-//     placeholder="Email"
-//     value={formik.values.email}
-//     onChange={formik.handleChange}
-//   />
-//   <input
-//     type="password"
-//     name="password"
-//     placeholder="Password"
-//     value={formik.values.password}
-//     onChange={formik.handleChange}
-//   />
-//   {formik.errors.password && <div>{formik.errors.password}</div>}
-//   <button type="submit" disabled={formik.isSubmitting}>
-//     Login
-//   </button>
-// </form>
