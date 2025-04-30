@@ -1,19 +1,19 @@
-import { useQuery } from "@tanstack/react-query";
-import useAuth from "../context/useAuth";
-import axios from "axios";
-import API_URL from "../api/api";
+// hooks/useConversation.js
+import { useQuery } from '@tanstack/react-query';
+import useAuth from "../context/useAuth"
+import axios from 'axios';
 
 export const useConversation = (channelId) => {
-  const { authToken } = useAuth();
+  const {authToken} = useAuth();
   return useQuery({
-    queryKey: ["conversation", channelId],
+    queryKey: ['conversation', channelId],
     queryFn: async () => {
       const { data } = await axios.get(
-        `${API_URL}/api/channels/${channelId}/conversation/`,
+        `https://channels-backend-production.up.railway.app/api/channels/${channelId}/conversation/`,
         {
           headers: {
             Authorization: `Bearer ${authToken}`,
-          },
+          }
         }
       );
       return data;
@@ -21,6 +21,7 @@ export const useConversation = (channelId) => {
     enabled: !!channelId && !!authToken,
   });
 };
+
 
 // import { useQuery } from '@tanstack/react-query';
 // import axios from 'axios';
