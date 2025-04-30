@@ -9,11 +9,10 @@ import {
   Box,
   TextField,
   FormControlLabel,
-
+  Button
 } from "@mui/material";
 import LockOutLinedIcon from "@mui/icons-material/LockOutlined";
 import { Checkbox } from "@mui/material";
-
 
 const Login = () => {
   const { loginUser } = useAuth();
@@ -52,36 +51,44 @@ const Login = () => {
           Sign In
         </Typography>
         <Box
-  component="form"
-  onSubmit={formik.handleSubmit}
-  noValidate
-  sx={{ mt: 1 }}
->
-  <TextField
-    name="email"
-    placeholder="Email"
-    fullWidth
-    autoFocus
-    sx={{ mb: 2 }}
-    value={formik.values.email}
-    onChange={formik.handleChange}
-  />
-  <TextField
-    name="password"
-    placeholder="Password"
-    fullWidth
-    type="password"
-    sx={{ mb: 2 }}
-    value={formik.values.password}
-    onChange={formik.handleChange}
-  />
-  <FormControlLabel
-    control={<Checkbox value="remember" color="primary" />}
-    label="Remember me"
-    sx={{ display: "flex", alignItems: "center", mb: 2 }}
-  />
-</Box>
-
+          component="form"
+          onSubmit={formik.handleSubmit}
+          noValidate
+          sx={{ mt: 1 }}
+        >
+          <TextField
+            name="email"
+            placeholder="Email"
+            fullWidth
+            autoFocus
+            sx={{ mb: 2 }}
+            value={formik.values.email}
+            onChange={formik.handleChange}
+          />
+          <TextField
+            name="password"
+            placeholder="Password"
+            fullWidth
+            type="password"
+            sx={{ mb: 2 }}
+            value={formik.values.password}
+            onChange={formik.handleChange}
+          />
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Remember me"
+            sx={{ display: "flex", alignItems: "center", mb: 2 }}
+          />
+        </Box>
+        <Button
+          type="submit"
+          variant="contained"
+          fullWidth
+          sx={{ mt: 1 }}
+          disabled={formik.isSubmitting}
+        >
+          Sign In
+        </Button>
       </Paper>
     </Container>
   );
