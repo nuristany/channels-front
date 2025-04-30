@@ -20,7 +20,9 @@ const RegisterUser = () => {
     initialValues: {
       email: "",
       password: "",
-    },
+      first_name: "",
+      last_name: ""
+        },
     onSubmit: async (values, { setSubmitting, setErrors }) => {
       try {
         await axios.post(`${API_URL}/auth/users/`, {
@@ -57,6 +59,28 @@ const RegisterUser = () => {
             autoFocus
             sx={{ mb: 1 }}
             value={formik.values.email}
+            onChange={formik.handleChange}
+            error={Boolean(formik.errors.email)}
+            helperText={formik.errors.email}
+          />
+          <TextField
+            name="First Name"
+            placeholder="Email"
+            fullWidth
+            autoFocus
+            sx={{ mb: 1 }}
+            value={formik.values.first_name}
+            onChange={formik.handleChange}
+            error={Boolean(formik.errors.email)}
+            helperText={formik.errors.email}
+          />
+          <TextField
+            name="Last Name"
+            placeholder="Email"
+            fullWidth
+            autoFocus
+            sx={{ mb: 1 }}
+            value={formik.values.last_name}
             onChange={formik.handleChange}
             error={Boolean(formik.errors.email)}
             helperText={formik.errors.email}
