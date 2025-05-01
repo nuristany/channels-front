@@ -21,8 +21,8 @@ const RegisterUser = () => {
       email: "",
       password: "",
       first_name: "",
-      last_name: ""
-        },
+      last_name: "",
+    },
     onSubmit: async (values, { setSubmitting, setErrors }) => {
       try {
         await axios.post(`${API_URL}/auth/users/`, {
@@ -73,8 +73,8 @@ const RegisterUser = () => {
             sx={{ mb: 1 }}
             value={formik.values.first_name}
             onChange={formik.handleChange}
-            error={Boolean(formik.errors.email)}
-            helperText={formik.errors.email}
+            error={Boolean(formik.errors.first_name)}
+            helperText={formik.errors.first_name}
           />
           <TextField
             name="last_name"
@@ -84,8 +84,8 @@ const RegisterUser = () => {
             sx={{ mb: 1 }}
             value={formik.values.last_name}
             onChange={formik.handleChange}
-            error={Boolean(formik.errors.email)}
-            helperText={formik.errors.email}
+            error={Boolean(formik.errors.last_name)}
+            helperText={formik.errors.last_name}
           />
           <TextField
             name="password"
@@ -94,6 +94,8 @@ const RegisterUser = () => {
             fullWidth
             value={formik.values.password}
             onChange={formik.handleChange}
+            error={Boolean(formik.errors.password)}
+            helperText={formik.errors.password}
           />
           <Button
             type="submit"
@@ -110,4 +112,3 @@ const RegisterUser = () => {
   );
 };
 export default RegisterUser;
-
