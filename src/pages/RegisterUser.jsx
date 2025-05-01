@@ -28,6 +28,8 @@ const RegisterUser = () => {
         await axios.post(`${API_URL}/auth/users/`, {
           email: values.email,
           password: values.password,
+          first_name: values.first_name,
+          last_name: values.last_name,
         });
         navigate("/login");
       } catch (error) {
@@ -64,7 +66,7 @@ const RegisterUser = () => {
             helperText={formik.errors.email}
           />
           <TextField
-            name="First Name"
+            name="first_name"
             placeholder="First Name"
             fullWidth
             autoFocus
@@ -75,7 +77,7 @@ const RegisterUser = () => {
             helperText={formik.errors.email}
           />
           <TextField
-            name="Last Name"
+            name="last_name"
             placeholder="Last Name"
             fullWidth
             autoFocus
