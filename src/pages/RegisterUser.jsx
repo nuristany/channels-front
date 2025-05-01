@@ -25,7 +25,7 @@ const RegisterUser = () => {
     },
     onSubmit: async (values, { setSubmitting, setErrors }) => {
       try {
-        await axios.post("https://channels-backend-production.up.railway.app/auth/users/", {
+        await API_URL.post("auth/users/", {
           email: values.email,
           password: values.password,
           first_name: values.first_name,
