@@ -25,7 +25,7 @@ const RegisterUser = () => {
     },
     onSubmit: async (values, { setSubmitting, setErrors }) => {
       try {
-        await axios.post(`${API_URL}/auth/users/`, {
+        await axios.post(`${API_URL}auth/users/`, {
           email: values.email,
           password: values.password,
           first_name: values.first_name,
