@@ -10,7 +10,7 @@ export const useConversation = (channelId) => {
     queryKey: ['conversation', channelId],
     queryFn: async () => {
       const { data } = await API_URL.get(
-        `${API_URL}api/channels/${channelId}/conversation/`,
+        `api/channels/${channelId}/conversation/`,
         {
           headers: {
             Authorization: `Bearer ${authToken}`,
