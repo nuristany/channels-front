@@ -76,7 +76,7 @@ const RegisterUser = () => {
           />
           <TextField
             name="Last Name"
-            placeholder="Name"
+            placeholder="Last Name"
             fullWidth
             autoFocus
             sx={{ mb: 1 }}
