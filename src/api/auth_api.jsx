@@ -11,7 +11,7 @@
 import axios from 'axios';
 
 const AUTH_URL = axios.create({
-    baseURL:"https://channels-backend-production.up.railway.app",
+    baseURL:"https://projectonebackend-production.up.railway.app/",
     
 })
 

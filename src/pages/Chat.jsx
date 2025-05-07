@@ -41,15 +41,18 @@ const Chat = () => {
   }, [messagesData]);
 
   // 6️⃣ Build the WebSocket URL (only once we have channelId & authToken)
-  const isProduction = true;
+  // const isProduction = true;
+  // const socketUrl =
+  // authToken && channelId
+  //   ? `${isProduction ? 'wss://channels-backend-production.up.railway.app' : 'ws://127.0.0.1:8000'}/ws/chat/${channelId}/?token=${authToken}`
+  //   : null;
+ 
   const socketUrl =
   authToken && channelId
-    ? `${isProduction ? 'wss://channels-backend-production.up.railway.app' : 'ws://127.0.0.1:8000'}/ws/chat/${channelId}/?token=${authToken}`
+    ? `ws://127.0.0.1:8000/ws/chat/${channelId}/?token=${authToken}`
     : null;
-  // const socketUrl =
-  //   authToken && channelId
-  //     ? `wss://channels-backend-production.up.railway.app/ws/chat/${channelId}/?token=${authToken}`
-  //     : null;
+
+
 
   const { sendJsonMessage, readyState } = useWebSocket(socketUrl, {
     onOpen: () => console.log("✅ Connected"),
